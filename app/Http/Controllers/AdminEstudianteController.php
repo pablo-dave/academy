@@ -243,7 +243,12 @@
 	        | $this->load_js[] = asset("myfile.js");
 	        |
 	        */
-	        $this->load_js = array();
+	        $this->load_js = array(
+                asset("js/estudiante.js"),
+                asset("js/inputmask.min.js"),
+                asset("js/kendo.all.min.js"),
+                asset("js/kendo.culture.es-EC.min.js")
+            );
 
 
 
@@ -267,7 +272,11 @@
 	        | $this->load_css[] = asset("myfile.css");
 	        |
 	        */
-	        $this->load_css = array();
+            $this->load_css = array(
+                asset("css/kendo.common.min.css"),
+                asset("css/kendo.default.min.css"),
+                asset("css/kendo.default.mobile.min.css")
+            );
 
 
 	    }
