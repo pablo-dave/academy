@@ -17,7 +17,7 @@
     <div class='panel panel-default'>
         <div class='panel-heading'>Gestión de calificaciones</div>
         <div class='panel-body'>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-1">
                         <label>Asignatura</label>
@@ -40,8 +40,8 @@
                     <button id="consultar" type="button" class="btn btn-primary"><span class="fa fa-search"></span> Consultar</button>
                 </div>
                 <div class="row">
-                    <div class="col-xs-11">
-                        <div id="mainGrid" style="max-height:350px"></div>
+                    <div class="col-xs-12">
+                        <div id="mainGrid" style="width:100%"></div>
                     </div>
                 </div>
             </div>

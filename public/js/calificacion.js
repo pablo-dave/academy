@@ -1,12 +1,15 @@
 $(document).ready(function () {
-    console.log('second')
+
+    if(DOCENTE_ID == "" || typeof DOCENTE_ID == null){
+        DOCENTE_ID = 0;
+    }
 
     var path = ADMIN_PATH+"/curso/asignatura-periodo";
     var pathCalificaciones = ADMIN_PATH+"/calificacion/with-estudiante";
     var pathUpdateCalificacion = ADMIN_PATH+"/calificacion/update-calificacion";//guardar cambios
     var pathAsignaturaGetJson = '';
     var pathAsignaturasByDocente = ADMIN_PATH+"/asignatura/asignatura-by-docente/"+DOCENTE_ID
-    var pathPeriodos = ADMIN_PATH+"/periodo/periodo-json"
+    var pathPeriodos = ADMIN_PATH+"/periodo/periodo-json";
 
     var vm = {};
     vm.setPath        = setPath;
@@ -323,7 +326,7 @@ $(document).ready(function () {
         var periodo = $('#periodo').data('kendoDropDownList');
         var curso = $('#curso').data('kendoDropDownList');
 
-        pathCalificaciones = pathCalificaciones+'?asignatura_id='+asignatura.dataItem().id+'&periodo_id='+periodo.dataItem().id+'&curso_id='+curso.dataItem().id;
+        pathCalificaciones = pathCalificaciones+'?asignatura_id='+asignatura.dataItem().asignatura.id+'&periodo_id='+periodo.dataItem().id+'&curso_id='+curso.dataItem().id;
 
         $.ajax({
             url:pathCalificaciones,
@@ -337,7 +340,7 @@ $(document).ready(function () {
             data.forEach(function (v) {
                 if(v.calificaciones.length == 0){
                     v.calificaciones = [{
-                        asignatura_id: asignatura.dataItem().id,
+                        asignatura_id: asignatura.dataItem().asignatura.id,
                         curso_id: curso.dataItem().id,
                         estudiante_id: v.id,
                         u1_insumo1: 0,

@@ -175,8 +175,10 @@
             $pathCalificaciones = '"'.CRUDBooster::adminPath("calificacion/with-estudiante").'"';
             $pathUpdateCalificacion = '"'.CRUDBooster::adminPath("calificacion/update-calificacion").'"';
 
-            if(CRUDBooster::myPrivilegeId() == 3){
-                $user = Users::find(CRUDBooster::myId());
+            switch(CRUDBooster::myPrivilegeId()){
+                case 3:
+                    $user = Users::find(CRUDBooster::myId());
+                break;
             }
 
             $this->script_js = "
@@ -185,7 +187,6 @@
                 (function(){
                     var ADMIN_PATH = '".CRUDBooster::adminPath()."';
                     DOCENTE_ID = '".$user->docente_id."';
-                    console.log(DOCENTE_ID)
                 })();
             ";
             /*

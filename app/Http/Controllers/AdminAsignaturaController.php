@@ -325,7 +325,12 @@
 
 
         public function byDocente($id){
-            $asignaturas = DocenteAsignatura::with('asignatura')->where('docente_id',$id)->get();
+	        if($id > 0){
+                $asignaturas = DocenteAsignatura::with('asignatura')->where('docente_id',$id)->get();
+            }else{
+                $asignaturas = DocenteAsignatura::with('asignatura')->get();
+            }
+
             return response()->json($asignaturas);
         }
 
