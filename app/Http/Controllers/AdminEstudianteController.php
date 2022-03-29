@@ -4,6 +4,7 @@
 	use Request;
 	use DB;
 	use CRUDBooster;
+	use App;
 
 	class AdminEstudianteController extends \crocodicstudio\crudbooster\controllers\CBController {
 
@@ -247,7 +248,8 @@
                 asset("js/estudiante.js"),
                 asset("js/inputmask.min.js"),
                 asset("js/kendo.all.min.js"),
-                asset("js/kendo.culture.es-EC.min.js")
+                asset("js/kendo.culture.es-EC.min.js"),
+                asset ('vendor/crudbooster/assets/adminlte/plugins/datepicker/locales/bootstrap-datepicker.'.App::getLocale().'.js')
             );
 
 
@@ -405,9 +407,11 @@
 
 	    }
 
+        public function getAdd() {
 
-
-	    //By the way, you can still create your own method in here... :)
-
+            $data = [];
+            $data['page_title'] = 'Añadir estudiante';
+            return $this->view('estudiante.add',$data);
+        }
 
 	}

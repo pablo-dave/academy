@@ -54,14 +54,14 @@
     </style>
     <style type="text/css"> thead:before, thead:after { display: none; } tbody:before, tbody:after { display: none; } </style>
 </head>
-<body>
+<body onload="window.print()">
 <!--<body onload="window.print()">-->
 @foreach($estudiantes as $e)
     <h2 class="center">
-        <img style="float: left;" src="{{asset("images/logo.png")}}" width="90" height="90">
+        <img style="float: left;" src="{{asset("images/logo.jpeg")}}" width="90" height="90">
         <img style="float: right;" src="{{asset("images/ministerio.png")}}" width="120" height="70">
-        Centro Educativo Particular  "Liceo Ecuatoriano" <br>
-        REGISTRO DE EVALUACIONES DEL PRIMER QUIMESTRE
+        Institución Educativa Particular "Luces del Amanecer" <br>
+        REGISTRO DE EVALUACIONES
     </h2>
     <br>
     <label for=""><b>Nombres y Apellidos: </b>{{$e->nombres." ".$e->apellidos}}</label><br>
@@ -138,7 +138,7 @@
             <td colspan="22" style="background-color: #DA9694;-webkit-print-color-adjust:exact;font-weight: bold;">RESUMEN DEL DESARROLLO COMPORTAMENTAL, APROVECHAMIENTO Y ASISTENCIA</td>
         </tr>
         <tr>
-            <td colspan="14">PRIMER QUIMESTRE</td>
+            <td colspan="14">Periodo </td>
             <td></td>
             <td colspan="4" style="font-size: 8pt;">TOTAL DIAS LABORADOS</td>
             <td colspan="2" style="font-size: 9pt;"></td>
