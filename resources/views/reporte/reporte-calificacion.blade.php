@@ -55,7 +55,6 @@
     <style type="text/css"> thead:before, thead:after { display: none; } tbody:before, tbody:after { display: none; } </style>
 </head>
 <body onload="window.print()">
-<!--<body onload="window.print()">-->
 @foreach($estudiantes as $e)
     <h2 class="center">
         <img style="float: left;" src="{{asset("images/logo.jpeg")}}" width="90" height="90">
@@ -65,7 +64,7 @@
     </h2>
     <br>
     <label for=""><b>Nombres y Apellidos: </b>{{$e->nombres." ".$e->apellidos}}</label><br>
-    <label for=""><b>Año de Educación Básica: </b>{{$e->nombres." ".$e->apellidos}}</label>
+    <label for=""><b>Año de Educación Básica: </b>{{$curso->anio}}</label>
     <table align="center" border="1" class="custom-table">
         <tr>
             <th rowspan="2">No</th>

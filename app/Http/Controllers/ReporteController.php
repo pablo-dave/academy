@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use App\CursoEstudiante;
 use App\Estudiante;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -157,15 +158,19 @@ class ReporteController extends Controller
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream();*/
-        $cursoEstudiante = CursoEstudiante::where("curso_id",$request->get( "curso_id"))->get();
+        $curso_id = $request->get( "curso_id");
+        $curso = Curso::find($curso_id);
+
+        $cursoEstudiante = CursoEstudiante::where("curso_id",$curso_id)->get();
         $estudiantes = array();
+
         foreach($cursoEstudiante as $ce){
             array_push($estudiantes,$ce->estudiante_id);
         }
         $estudiante = Estudiante::with(["calificaciones"=>function($query){
             $query->with("asignatura");
         }])->whereIn('id',$estudiantes)->get();
-        return view('reporte.reporte-calificacion',["estudiantes"=>$estudiante]);
+        return view('reporte.reporte-calificacion',["estudiantes"=>$estudiante,"curso"=>$curso]);
     }
 
     public function generateToJson(){
