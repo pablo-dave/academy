@@ -47,7 +47,7 @@
 			$this->form[] = ['label'=>'Titulo','name'=>'titulo','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Sexo','name'=>'sexo','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Direccion','name'=>'direccion','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Telefono','name'=>'telefono','type'=>'number','validation'=>'min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Telefono','name'=>'telefono','type'=>'number','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Nivel','name'=>'nivel','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:docente','width'=>'col-sm-10','placeholder'=>'Introduce una dirección de correo electrónico válida'];
 			# END FORM DO NOT REMOVE THIS LINE
